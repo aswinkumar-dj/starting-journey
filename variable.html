@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Variables</title>
+    </head>
+    <body>
+        <p> Amazon Like Cart</p>
+        <button onclick=
+        "cartQuantity=cartQuantity+1
+        console.log(`cart quantity : ${cartQuantity}`);">
+            Add to cart
+        </button>
+        <button onclick="console.log(` total cart quantity : ${cartQuantity}`);">
+            Total items
+        </button>
+
+        <button onclick="cartQuantity=0
+        console.log('cart was reset');
+        console.log(`cart quantity: ${cartQuantity}`);">Reset cart</button>
+        
+        <script>
+        let variable1=3;
+        console.log(variable1);
+
+        let result=variable1+3;
+        console.log(result);
+
+        let message = 'hello';
+        console.log(message);
+
+        let cartQuantity=0;
+
+        </script>   
+    </body>
+</html>
