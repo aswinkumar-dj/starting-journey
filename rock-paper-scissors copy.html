@@ -9,7 +9,7 @@
             <button
             title="Your move: Rock" 
             onclick="
-            pickComputerMove();
+            const computerMove=pickComputerMove();
             
             let result ='';
             if (computerMove === 'Rock'){           
@@ -30,25 +30,25 @@
             <button
             title="Your move: Paper" 
             onclick="
-            pickComputerMove();
-            let result2 ='';
-            if (computerMove2 === 'Rock'){
+            const computerMove=pickComputerMove();
+            let result ='';
+            if (computerMove === 'Rock'){
                 result2 ='Win';
             }
-            else if (computerMove2 === 'Paper' ){
+            else if (computerMove === 'Paper' ){
                 result2 = 'Tie'
             }
-            else if (computerMove2 === 'Scissor'){
+            else if (computerMove === 'Scissor'){
                 result2 = 'Lose'
             }
-            alert(`Your Move is Paper. Computer Move is ${computerMove2}.Game ${result2}`);">Paper
+            alert(`Your Move is Paper. Computer Move is ${computerMove}.Game ${result}`);">Paper
             </button>
             
             
             <button
             title="Your move: Scissor" 
             onclick="
-            pickComputerMove();
+            const computerMove=pickComputerMove();
             let result ='';
             if (computerMove === 'Rock'){           
                 result ='Lose';
@@ -65,9 +65,10 @@
             </button>
 
             <script>
-                let computerMove='';
+                
                function pickComputerMove() {
                 const randomNumber=Math.random();
+                let computerMove='';
             
             if(randomNumber >= 0 && randomNumber < 1/3){
                 computerMove='Rock';
@@ -78,6 +79,7 @@
             else if (randomNumber >=2/3 && randomNumber <1){
                 computerMove='Scissor'
             }
+            return computerMove;
 
                }
             </script>
