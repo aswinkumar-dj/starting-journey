@@ -31,23 +31,34 @@
             ">Scissor
             </button>
 
+            <p class="js-result"></p>
+            <p class="js-moves"></p>
+            <p class="js-score"></p>
+            <p class="js-refresh"></p>
+
             <button onclick=" 
             score.wins=0;
             score.losses=0;
             score.ties=0;
             localStorage.removeItem('score');
-            alert('Scores Are Refreshed!');
+            
+            scoreElement();
+            document.querySelector('.js-refresh').innerHTML= 'Scores are refreshed';
             ">Reset Score
             </button>
 
             <script>
+
                 let score = JSON.parse(localStorage.getItem('score')) || {
                     wins: 0,
                     losses: 0,
                     ties: 0
                 };
 
+                scoreElement();
+
                 function playGame(playerMove) {
+                    document.querySelector('.js-refresh').innerText = ''; /* This will disppear the refresh line */
                     const computerMove = pickComputerMove();
                     let result = '';
 
@@ -87,9 +98,15 @@
                         score.ties +=1;
                     }
                     localStorage.setItem('score', JSON.stringify(score));
+                    scoreElement();
 
-                    alert(`Your Move is ${playerMove}. Computer Move is ${computerMove}. Game ${result}.
-Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`);
+                    document.querySelector('.js-result')
+                        .innerHTML= result;
+
+                    document.querySelector('.js-moves')
+                        .innerHTML = `Your Move is ${playerMove}. Computer Move is ${computerMove}`;
+
+                   
                 }
                function pickComputerMove() {
                 const randomNumber=Math.random();
@@ -106,6 +123,10 @@ Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`);
                 }
                 return computerMove;
 
+               }
+               function scoreElement(){
+                document.querySelector('.js-score')
+                    .innerHTML=`Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`;
                }
             </script>
         </body>
