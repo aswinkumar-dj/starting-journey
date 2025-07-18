@@ -22,31 +22,47 @@ function autoPlay() {
   }
 }
 
+document.querySelector('.js-rock-btn').addEventListener('click', () => {
+    playGame('rock');
+
+});
+
+document.querySelector('.js-paper-btn').addEventListener('click', () => {
+    playGame('paper');
+
+});
+
+document.querySelector('.js-scissor-btn').addEventListener('click', () => {
+    playGame('scissor');
+
+});
+
+
 function playGame(playerMove) {
     document.querySelector('.js-refresh').innerText = ''; /* This will disppear the refresh line */
     const computerMove = pickComputerMove();
     let result = '';
 
-    if (playerMove === 'Rock') {
-        if (computerMove === 'Rock') {
+    if (playerMove === 'rock') {
+        if (computerMove === 'rock') {
             result = 'Tie';
-        } else if (computerMove === 'Paper') {
+        } else if (computerMove === 'paper') {
             result = 'Lose';
         } else {
             result = 'Win';
         }
-    } else if (playerMove === 'Paper') {
-        if (computerMove === 'Rock') {
+    } else if (playerMove === 'paper') {
+        if (computerMove === 'rock') {
             result = 'Win';
-        } else if (computerMove === 'Paper') {
+        } else if (computerMove === 'paper') {
             result = 'Tie';
         } else {
             result = 'Lose';
         }
-    } else if (playerMove === 'Scissor') {
-        if (computerMove === 'Rock') {
+    } else if (playerMove === 'scissor') {
+        if (computerMove === 'rock') {
             result = 'Lose';
-        } else if (computerMove === 'Paper') {
+        } else if (computerMove === 'paper') {
             result = 'Win';
         } else {
             result = 'Tie';
@@ -82,13 +98,13 @@ const randomNumber=Math.random();
 let computerMove='';
 
 if(randomNumber >= 0 && randomNumber < 1/3){
-    computerMove='Rock';
+    computerMove='rock';
 }
 else if (randomNumber >= 1/3 && randomNumber < 2/3){
-    computerMove='Paper';
+    computerMove='paper';
 }
 else if (randomNumber >=2/3 && randomNumber <1){
-    computerMove='Scissor'
+    computerMove='scissor'
 }
 return computerMove;
 
